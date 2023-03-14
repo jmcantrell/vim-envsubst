@@ -1,0 +1,17 @@
+Given:
+  $foo bar baz
+  foo $bar baz
+  foo bar $baz
+
+Do:
+  gg
+
+Execute:
+  PressKeyNext
+  PressKeyNext
+  PressKeyNext
+
+Expect:
+  $foo bar baz
+  foo $bar baz
+  foo bar $baz

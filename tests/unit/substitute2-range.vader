@@ -1,0 +1,22 @@
+Before:
+  let $foo = 'aaa'
+  let $bar = 'bbb'
+  let $baz = 'ccc'
+
+After:
+  unlet $foo
+  unlet $bar
+  unlet $baz
+
+Given:
+  ${foo} bar baz
+  foo ${bar} baz
+  foo bar ${baz}
+
+Execute:
+  :2,3EnvSubst
+
+Expect:
+  ${foo} bar baz
+  foo bbb baz
+  foo bar ccc

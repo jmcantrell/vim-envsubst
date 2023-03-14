@@ -1,0 +1,27 @@
+Before:
+  let $foo = 'aaa'
+  let $bar = 'bbb'
+  let $baz = 'ccc'
+
+After:
+  unlet $foo
+  unlet $bar
+  unlet $baz
+
+Given:
+  $foo bar baz
+  foo $bar baz
+  foo bar $baz
+
+Do:
+  G
+
+Execute:
+  PressKeyPrev
+  PressKeyPrev
+  PressKeyPrev
+
+Expect:
+  aaa bar baz
+  foo bbb baz
+  foo bar ccc

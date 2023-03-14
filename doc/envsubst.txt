@@ -1,0 +1,64 @@
+*envsubst.txt*  Substitutes environment variables in shell format strings
+
+Author:   Jeremy Cantrell <jmcantrell@gmail.com>  *envsubst-author*
+License:  Same terms as Vim itself (see |license|)
+
+INTRODUCTION                                      *envsubst* *envsubst.vim*
+
+Intended as a companion to the GNU gettext command of the same name, this
+plugin provides commands and mappings to substitute the values of environment
+variables of the form $VARIABLE or ${VARIABLE} in a buffer.
+
+CONFIGURATION                                     *envsubst-configuration*
+
+g:envsubst_loaded                                 *g:envsubst_loaded*
+    If set in your |vimrc|, envsubst.vim is not loaded.
+
+g:envsubst_trigger_next                           *b:envsubst_trigger_next*
+    A |String| representing the key to use when selecting the next environment
+    variable for substitution (default: "\<C-j>").
+
+g:envsubst_trigger_prev                           *b:envsubst_trigger_prev*
+    A |String| representing the key to use when selecting the previous
+    environment variable for substitution (default: "\<C-k>").
+
+g:envsubst_no_mappings                            *g:envsubst_no_mappings*
+    If set in your |vimrc|, the mappings bound to the following trigger
+    variables will not be created. To be able to use interactive substitution,
+    mappings will need to be created for the corresponding |<Plug>|s for
+    |mapmode-n|, |mapmode-i|, and |mapmode-s| (see |using-<Plug>|).
+
+    For example:
+>
+        call envsubst#create_mappings("\<C-j>", "Next")
+        call envsubst#create_mappings("\<C-j>", "Prev")
+<
+    Which is equivalent to:
+>
+        nmap <C-j> <Plug>EnvSubstNext
+        imap <C-j> <Plug>EnvSubstNext
+        smap <C-j> <Plug>EnvSubstNext
+
+        nmap <C-k> <Plug>EnvSubstPrev
+        imap <C-k> <Plug>EnvSubstPrev
+        smap <C-k> <Plug>EnvSubstPrev
+<
+
+COMMANDS
+
+                                                  *:EnvSubst*
+:[range]EnvSubst        Substitute environment variables in [range].
+                        Non-existent variables will be left unchanged.
+
+USAGE                                             *envsubst-usage*
+
+Environment variables can be substituted automatically for a range using the
+command |:EnvSubst| or interactively by using the trigger keys.
+
+Depending on the trigger key used and if there are any variables found, the
+next/previous one will be substituted with the existing value (if there is
+one) and selected so that it can be typed over, if desired. The trigger key
+can be continuously pressed to cycle through the variables or |<Esc>| pressed
+to stop substitution.
+
+vim:tw=78:et:ft=help:norl:

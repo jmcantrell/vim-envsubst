@@ -1,0 +1,3 @@
+Execute:
+  AssertNotEqual g:envsubst_trigger_next, g:envsubst_trigger_next_default
+  AssertNotEqual g:envsubst_trigger_prev, g:envsubst_trigger_prev_default
