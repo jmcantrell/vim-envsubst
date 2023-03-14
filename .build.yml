@@ -1,0 +1,10 @@
+---
+image: archlinux
+packages:
+  - vim
+sources:
+  - https://git.sr.ht/~jmcantrell/vim-envsubst
+tasks:
+  - test: |
+      cd vim-envsubst
+      ./scripts/test

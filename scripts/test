@@ -18,7 +18,7 @@ ensure_git \
     ./tests/.vim/pack/default/start/vim-vader
 
 run_vim() {
-    vim -N --clean -u ./tests/.vimrc "$@"
+    vim --not-a-term -N --clean -u ./tests/.vimrc "$@"
 }
 
 run_vim \
