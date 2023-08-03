@@ -16,11 +16,6 @@ function! envsubst#map_trigger(key, name) abort
     endfor
 endfunction
 
-function! envsubst#create_mappings() abort
-    call envsubst#map_trigger(g:envsubst_trigger_next, "Next")
-    call envsubst#map_trigger(g:envsubst_trigger_prev, "Prev")
-endfunction
-
 function! s:find_variable(flags) abort
     let [line, start_column, submatch] = searchpos(s:variable_pattern, a:flags.'p')
 

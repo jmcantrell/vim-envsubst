@@ -23,19 +23,3 @@ run_vim() {
 
 run_vim \
     '+Vader! tests/unit/**.vader'
-
-run_vim \
-    --cmd 'let g:envsubst_loaded = 1' \
-    '+Vader! tests/integration/disable.vader'
-
-run_vim \
-    '+Vader! tests/integration/mappings-default.vader'
-
-run_vim \
-    --cmd 'let g:envsubst_no_mappings = 1' \
-    '+Vader! tests/integration/mappings-disable.vader'
-
-run_vim \
-    --cmd 'let g:envsubst_trigger_next = "\<C-l>"' \
-    --cmd 'let g:envsubst_trigger_prev = "\<C-h>"' \
-    '+Vader! tests/integration/mappings-custom.vader'

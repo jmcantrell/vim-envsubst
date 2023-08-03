@@ -15,17 +15,10 @@ inoremap <silent> <plug>EnvSubstPrev <esc>:call envsubst#select('b')<cr>
 snoremap <silent> <plug>EnvSubstNext <esc>:call envsubst#select('')<cr>
 snoremap <silent> <plug>EnvSubstPrev <esc>:call envsubst#select('b')<cr>
 
-let g:envsubst_trigger_next_default = "\<C-j>"
-let g:envsubst_trigger_prev_default = "\<C-k>"
-
-if !exists('g:envsubst_trigger_next')
-    let g:envsubst_trigger_next = g:envsubst_trigger_next_default
+if exists('g:envsubst_trigger_next')
+    call envsubst#map_trigger(g:envsubst_trigger_next, "Next")
 endif
 
-if !exists('g:envsubst_trigger_prev')
-    let g:envsubst_trigger_prev = g:envsubst_trigger_prev_default
-endif
-
-if !exists("g:envsubst_no_mappings")
-    call envsubst#create_mappings()
+if exists('g:envsubst_trigger_prev')
+    call envsubst#map_trigger(g:envsubst_trigger_prev, "Prev")
 endif

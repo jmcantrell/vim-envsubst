@@ -14,34 +14,32 @@ CONFIGURATION                                     *envsubst-configuration*
 g:envsubst_loaded                                 *g:envsubst_loaded*
     If set in your |vimrc|, envsubst.vim is not loaded.
 
-g:envsubst_trigger_next                           *b:envsubst_trigger_next*
+g:envsubst_trigger_next                           *g:envsubst_trigger_next*
     A |String| representing the key to use when selecting the next environment
-    variable for substitution (default: "\<C-j>").
+    variable for substitution.
 
-g:envsubst_trigger_prev                           *b:envsubst_trigger_prev*
+g:envsubst_trigger_prev                           *g:envsubst_trigger_prev*
     A |String| representing the key to use when selecting the previous
-    environment variable for substitution (default: "\<C-k>").
+    environment variable for substitution.
 
-g:envsubst_no_mappings                            *g:envsubst_no_mappings*
-    If set in your |vimrc|, the mappings bound to the following trigger
-    variables will not be created. To be able to use interactive substitution,
-    mappings will need to be created for the corresponding |<Plug>|s for
-    |mapmode-n|, |mapmode-i|, and |mapmode-s| (see |using-<Plug>|).
+Setting either of the previous two trigger variables will conveniently create
+mappings for the corresponding |mapmode-n|, |mapmode-i|, and |mapmode-s|
+|<Plug>|s (see |using-<Plug>|).
 
-    For example:
+For example:
 >
-        call envsubst#create_mappings("\<C-j>", "Next")
-        call envsubst#create_mappings("\<C-j>", "Prev")
+    let g:envsubst_trigger_next = "\<C-j>"
+    let g:envsubst_trigger_prev = "\<C-k>"
 <
-    Which is equivalent to:
+Is equivalent to:
 >
-        nmap <C-j> <Plug>EnvSubstNext
-        imap <C-j> <Plug>EnvSubstNext
-        smap <C-j> <Plug>EnvSubstNext
+    nmap <C-j> <Plug>EnvSubstNext
+    imap <C-j> <Plug>EnvSubstNext
+    smap <C-j> <Plug>EnvSubstNext
 
-        nmap <C-k> <Plug>EnvSubstPrev
-        imap <C-k> <Plug>EnvSubstPrev
-        smap <C-k> <Plug>EnvSubstPrev
+    nmap <C-k> <Plug>EnvSubstPrev
+    imap <C-k> <Plug>EnvSubstPrev
+    smap <C-k> <Plug>EnvSubstPrev
 <
 
 COMMANDS
