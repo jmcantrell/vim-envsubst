@@ -1,4 +1,4 @@
-if exists("g:envsubst_loaded")
+if exists('g:envsubst_loaded')
     finish
 endif
 
@@ -16,9 +16,9 @@ snoremap <silent> <plug>EnvSubstNext <esc>:call envsubst#select('')<cr>
 snoremap <silent> <plug>EnvSubstPrev <esc>:call envsubst#select('b')<cr>
 
 if exists('g:envsubst_trigger_next')
-    call envsubst#map_trigger(g:envsubst_trigger_next, "Next")
+    call envsubst#map_trigger(g:envsubst_trigger_next, 'Next')
 endif
 
 if exists('g:envsubst_trigger_prev')
-    call envsubst#map_trigger(g:envsubst_trigger_prev, "Prev")
+    call envsubst#map_trigger(g:envsubst_trigger_prev, 'Prev')
 endif

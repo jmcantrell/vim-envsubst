@@ -42,7 +42,7 @@ Is equivalent to:
     smap <C-k> <Plug>EnvSubstPrev
 <
 
-COMMANDS
+COMMANDS                                          *envsubst-commands*
 
                                                   *:EnvSubst*
 :[range]EnvSubst        Substitute environment variables in [range].

@@ -6,13 +6,13 @@ endfunction
 
 function! s:map(mode, key, plug) abort
     if !hasmapto(a:plug, a:mode)
-        execute $"{a:mode}map {keytrans(a:key)} {a:plug}"
+        execute a:mode.'map '.keytrans(a:key).' '.a:plug
     endif
 endfunction
 
 function! envsubst#map_trigger(key, name) abort
     for mode in ['n', 'i', 's']
-        call s:map(mode, a:key, $'<Plug>EnvSubst{a:name}')
+        call s:map(mode, a:key, '<Plug>EnvSubst'.a:name)
     endfor
 endfunction
 
@@ -29,7 +29,7 @@ function! s:find_variable(flags) abort
 endfunction
 
 function! envsubst#substitute() abort range
-    execute $'{a:firstline},{a:lastline}s/{s:variable_pattern}/\=s:get(submatch(1).submatch(2),submatch(0))/g'
+    execute a:firstline.','.a:lastline.'s/'.s:variable_pattern.'/\=s:get(submatch(1).submatch(2),submatch(0))/g'
 endfunction
 
 function! envsubst#select(flags) abort
