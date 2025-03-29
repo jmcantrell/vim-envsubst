@@ -28,18 +28,18 @@ mappings for the corresponding |mapmode-n|, |mapmode-i|, and |mapmode-s|
 
 For example:
 >
-    let g:envsubst_trigger_next = "\<C-j>"
-    let g:envsubst_trigger_prev = "\<C-k>"
+    let g:envsubst_trigger_next = "\<A-j>"
+    let g:envsubst_trigger_prev = "\<A-k>"
 <
 Is equivalent to:
 >
-    nmap <C-j> <Plug>EnvSubstNext
-    imap <C-j> <Plug>EnvSubstNext
-    smap <C-j> <Plug>EnvSubstNext
+    nmap <A-j> <Plug>EnvSubstNext
+    imap <A-j> <Plug>EnvSubstNext
+    smap <A-j> <Plug>EnvSubstNext
 
-    nmap <C-k> <Plug>EnvSubstPrev
-    imap <C-k> <Plug>EnvSubstPrev
-    smap <C-k> <Plug>EnvSubstPrev
+    nmap <A-k> <Plug>EnvSubstPrev
+    imap <A-k> <Plug>EnvSubstPrev
+    smap <A-k> <Plug>EnvSubstPrev
 <
 
 COMMANDS                                          *envsubst-commands*
