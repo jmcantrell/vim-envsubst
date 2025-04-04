@@ -1,4 +1,4 @@
-*envsubst.txt*  Substitutes environment variables in shell format strings
+*envsubst.txt*  Substitute environment variables in shell format strings
 
 Author:   Jeremy Cantrell <jmcantrell@gmail.com>  *envsubst-author*
 License:  Same terms as Vim itself (see |license|)
