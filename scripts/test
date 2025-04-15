@@ -6,10 +6,11 @@ ensure_git() {
     local url=$1
     local dir=$2
 
-    if [[ ! -d $dir ]]; then
-        git clone "$url" "$dir"
-    else
+    if [[ -d $dir ]]; then
         git -C "$dir" pull --rebase
+    else
+        mkdir -p "$(dirname "$dir")"
+        git clone "$url" "$dir"
     fi
 }
 
